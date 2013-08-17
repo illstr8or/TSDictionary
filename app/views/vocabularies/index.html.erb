@@ -1,0 +1,35 @@
+<h1>Listing vocabularies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Translated</th>
+      <th>Definition</th>
+      <th>Pronunciation</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vocabularies.each do |vocabulary| %>
+      <tr>
+        <td><%= vocabulary.word %></td>
+        <td><%= vocabulary.translated %></td>
+        <td><%= vocabulary.definition %></td>
+        <td><%= vocabulary.pronunciation %></td>
+        <td><%= vocabulary.image %></td>
+        <td><%= link_to 'Show', vocabulary %></td>
+        <td><%= link_to 'Edit', edit_vocabulary_path(vocabulary) %></td>
+        <td><%= link_to 'Destroy', vocabulary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vocabulary', new_vocabulary_path %>

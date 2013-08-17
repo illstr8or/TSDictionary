@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @vocabulary.word %>
+</p>
+
+<p>
+  <strong>Translated:</strong>
+  <%= @vocabulary.translated %>
+</p>
+
+<p>
+  <strong>Definition:</strong>
+  <%= @vocabulary.definition %>
+</p>
+
+<p>
+  <strong>Pronunciation:</strong>
+  <audio controls>
+    <source src="<%= @vocabulary.pronunciation %>" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@vocabulary.image_url, :width => 600) if @vocabulary.image.present? %>
+</p>
+
+<%= link_to 'Edit', edit_vocabulary_path(@vocabulary) %> |
+<%= link_to 'Back', vocabularies_path %>
